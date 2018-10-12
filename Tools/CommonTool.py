@@ -1,5 +1,7 @@
 # coding=utf-8
 
+import os
+
 def getHTMLStyle():
     """
     功能：获取邮件HTML样式
@@ -29,4 +31,33 @@ def getHTMLStyle():
            "    text-decoration:underline;" + \
            "    }" + \
            "</style>"
-    return css
+    return css + "<body topmargin=\"0\" leftmargin=\"0\" marginheight=\"0\" marginwidth=\"0\">"
+
+def parseConf(key = None,fileName = "projectConf"):
+    """
+    查询'key=value'键值对类型的配置文件
+    :param key: 查询的关键字
+    :param fileName: 配置文件名，默认projectConf
+    :return: 返回key对应的value
+    """
+
+    # 设定返回值为None，若未找到key可返回value;若key为None，返回None
+    value = None
+    if key is None:
+        return None
+
+    # 获取当前路径
+    curDir = os.path.dirname(os.path.abspath(__file__))
+
+    # 判断文件是否存在，若不存在返回None
+    if os.path.isfile(curDir + "//..//ProjectConf//" + fileName) is False:
+        return None
+
+    # 打开文件并获得key对应的value值
+    file = open(curDir + "//..//ProjectConf//" + fileName, "r")
+    for line in file.readlines():
+        if line.split("=")[0] == key:
+            value = line.split("=")[1].strip("\n")
+    file.close()
+
+    return value
