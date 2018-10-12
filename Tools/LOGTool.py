@@ -6,9 +6,13 @@ import logging
 logPath="../Log/log.log"
 
 def initLogging():
+    # 方便测试每次清空日志
+    with open(logPath,"w") as f:
+        f.write("")
+
     # 设定日志输出格式
     logging.basicConfig(level=logging.DEBUG,
-                        format='%(asctime)s %(filename)s [line:%(lineno)d] [ %(levelname)s ] %(message)s',
+                        format='%(asctime)s [ %(levelname)s ] %(message)s 【 %(filename)s [line:%(lineno)d] 】 ',
                         datefmt='%Y-%m-%d_%H:%M:%S',
                         filename=logPath,
                         filemode='a')
