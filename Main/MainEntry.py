@@ -1,6 +1,7 @@
 # coding=utf-8
-
+from Module.BaseInfo import drawBuildHTML
 from Module.Package import drawPkgHTML
+from Module.TestCase import drawTcHTML
 from Tools.CommonTool import getHTMLStyle
 from Tools.LOGTool import initLogging
 import logging
@@ -17,7 +18,7 @@ def initConfig():
     logging.info("---Step1: init the logging config")
 
 
-def analysisLogAndDrawReport():
+def analysisLogAndDrawReport(runMode):
     """
     分析日志并绘制报告格式
     :return: HTML(已经绘制over的HTML)
@@ -26,7 +27,15 @@ def analysisLogAndDrawReport():
     HTML = getHTMLStyle()
 
     logging.info("---Step3: analysis project logs and draw report")
-    HTML = drawPkgHTML(HTML)
+
+    # step 3.1 ：绘制构建情况
+    HTML = drawBuildHTML(HTML, runMode)
+
+    # step 3.2 ：绘制出包信息
+    HTML = drawPkgHTML(HTML, runMode)
+
+    # step 3.3 ：绘制用例信息
+    HTML = drawTcHTML(HTML)
     return HTML + "</body>"
 
 def sendReport(HTML):
@@ -44,8 +53,8 @@ if __name__ == "__main__":
     # 初始化全局配置
     initConfig()
 
-    # 分析日志并绘制报告格式
-    HTML = analysisLogAndDrawReport()
+    # 分析日志并绘制报告格式(runMode为构建方式，Roll=冒烟、All=全量)
+    HTML = analysisLogAndDrawReport(runMode="Roll")
 
     # 发送报告
     sendReport(HTML)
