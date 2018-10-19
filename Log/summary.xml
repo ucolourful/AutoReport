@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCases caseCount="99" failCount="1" testContinueTime="20:20:20">
+	<TestSuit name="testSuit_A">
+		<TestCase name="testCase_A" status="success" startTime="2018-10-19 15:43:31" endTime="2018-10-19 15:43:51" reason="reason_A" />
+		<TestCase name="testCase_B" status="failure" startTime="2018-10-19 15:29:46" endTime="2018-10-19 15:43:56" reason="reason_B" />
+		<TestCase name="testCase_C" status="not run" startTime="2018-10-19 15:42:09" endTime="2018-10-19 15:43:23" reason="reason_C" />
+	</TestSuit>
+	<TestSuit name="testSuit_B">
+		<TestCase name="testCase_D" status="success" startTime="2018-10-19 16:04:51" endTime="2018-10-19 16:06:12" reason="reason_D" />
+		<TestCase name="testCase_E" status="failure" startTime="2018-10-19 15:45:40" endTime="2018-10-19 15:46:58" reason="reason_E" />
+		<TestCase name="testCase_F" status="not run" startTime="2018-10-19 15:07:20" endTime="2018-10-19 15:23:52" reason="reason_F" />
+	</TestSuit>
+</TestCases>
