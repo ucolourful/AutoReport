@@ -36,7 +36,7 @@ def getPkgInfoList():
                 pkgInfoList.append(pkgInfo)
     return pkgInfoList
 
-def drawPkgHTML(html):
+def drawPkgHTML(html, runMode):
     """
     获取到包信息后，进行绘制报告HTML
     :param html: 传入html原始样式，并增加包信息绘制
@@ -45,7 +45,10 @@ def drawPkgHTML(html):
     pkgInfoList = getPkgInfoList()
     pkgHtml = "\n<table width=\"50%\">"
     pkgHtml += "\n<tr height=\"30\" class=\"tableHeader\">"
-    pkgHtml += "\n     <td colspan=\"2\" align=\"left\"><b><a name=\"gtr\">出包信息</a></b>"
+    if runMode == "Roll":
+        pkgHtml += "\n     <td colspan=\"2\" align=\"left\"><b><a name=\"gtr\">冒烟出包信息</a></b>"
+    elif runMode == "All":
+        pkgHtml += "\n     <td colspan=\"2\" align=\"left\"><b><a name=\"gtr\">全量的包信息</a></b>"
     pkgHtml += "\n </tr>"
     pkgHtml += "\n <tr>"
     pkgHtml += "\n    <td align=\"center\">名称</td>"
