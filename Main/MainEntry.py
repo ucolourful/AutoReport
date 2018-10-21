@@ -46,7 +46,7 @@ def sendReport(HTML):
     """
     logging.info("---Step4: send report to people")
     Mail = MailClient()
-    Mail.Send("test..【SELF TEST】", HTML, ["lwx513980"])
+    Mail.Send("【AutoReport】冒烟构建结果：", HTML, ["506231730@qq.com"])
     Mail.Release()
 
 if __name__ == "__main__":

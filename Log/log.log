@@ -1,1 +1,8 @@
-
+2018-10-21_15:31:39 [ INFO ] ---Step1: init the logging config 【 MainEntry.py [line:18] 】 
+2018-10-21_15:31:39 [ INFO ] ---Step2: get HTML style 【 MainEntry.py [line:26] 】 
+2018-10-21_15:31:39 [ INFO ] ---Step3: analysis project logs and draw report 【 MainEntry.py [line:29] 】 
+2018-10-21_15:31:39 [ INFO ] ---Step3.2: get package info 【 Package.py [line:16] 】 
+2018-10-21_15:31:39 [ INFO ] ---Step3.2.1: get package path ok; pkgPath = D:\SourceCode\ 【 Package.py [line:23] 】 
+2018-10-21_15:31:39 [ INFO ] ---Step3.2.2: get package list: 【 Package.py [line:30] 】 
+2018-10-21_15:31:39 [ INFO ] ---Step4: send report to people 【 MainEntry.py [line:47] 】 
+2018-10-21_15:31:40 [ INFO ] ---Step5: normal ending 【 MainEntry.py [line:63] 】 
